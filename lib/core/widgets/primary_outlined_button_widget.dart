@@ -26,7 +26,6 @@ class PrimaryOutLinedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.whiteColor,
         side: BorderSide(color: AppColors.primaryColor, width: 1.w),

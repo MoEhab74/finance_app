@@ -21,7 +21,8 @@ class HomeView extends StatelessWidget {
           const SizedBox(height: 20),
           AppTextFormField(
             hintText: 'Username',
-            // suffixIcon: 'assets/icons/eye_filled.png',
+            // isPassword: true,
+            // obscureText: true,
           ),
         ],
       ),

@@ -1,34 +1,57 @@
-import 'dart:developer';
-
 import 'package:finance_app/core/styling/app_colors.dart';
 import 'package:finance_app/core/styling/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppTextFormField extends StatelessWidget {
+class AppTextFormField extends StatefulWidget {
   const AppTextFormField({
     super.key,
     this.hintText,
     this.width,
     this.height,
-    this.suffixIcon,
+    this.isPassword,
+    this.obscureText,
   });
   final String? hintText;
   final double? width;
   final double? height;
-  final String? suffixIcon;
+  final bool? isPassword;
+  final bool? obscureText;
+
+  @override
+  State<AppTextFormField> createState() => _AppTextFormFieldState();
+}
+
+class _AppTextFormFieldState extends State<AppTextFormField> {
+  late bool isObscured;
+
+  @override
+  void initState() {
+    super.initState();
+    isObscured = widget.obscureText ?? false;
+  }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? 331.w,
-      height: height ?? 56.h,
+      width: widget.width ?? 331.w,
+      height: widget.height ?? 56.h,
       child: TextFormField(
+        obscureText: isObscured,
         decoration: InputDecoration(
-          suffixIcon: suffixIcon != null
+          suffixIcon: widget.isPassword != null
               ? IconButton(
-                  onPressed: () => log('Suffix icon tapped'),
-                  icon: Image.asset(suffixIcon!, width: 22.w, height: 22.h),
+                  onPressed: () {
+                    // Show or hide password logic
+                    setState(() {
+                      isObscured = !isObscured;
+                    });
+                  },
+                  icon: Icon(
+                    isObscured ? Icons.visibility_off : Icons.visibility,
+                    size: 22,
+                    color: AppColors.hintTextColor,
+                  ),
                 )
               : null,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
@@ -42,7 +65,7 @@ class AppTextFormField extends StatelessWidget {
           ),
           filled: true,
           fillColor: AppColors.filledGrayColor,
-          hintText: hintText ?? 'Enter text',
+          hintText: widget.hintText ?? 'Enter text',
           hintStyle: AppStyles.buttonTextStyle.copyWith(
             color: AppColors.hintTextColor,
           ),

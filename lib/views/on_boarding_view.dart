@@ -1,8 +1,10 @@
 import 'package:finance_app/core/styling/app_colors.dart';
 import 'package:finance_app/core/widgets/primary_button_widget.dart';
 import 'package:finance_app/core/widgets/primary_outlined_button_widget.dart';
+import 'package:finance_app/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
@@ -21,7 +23,13 @@ class OnBoardingView extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20),
-            AppButton(text: 'Login', onPressed: () {}),
+            AppButton(
+              text: 'Login',
+              onPressed: () {
+                // Navigate to Login View by go_router
+                GoRouter.of(context).pushNamed(AppRoutes.loginView);
+              },
+            ),
             const SizedBox(height: 16),
             PrimaryOutLinedButton(text: 'Register', onPressed: () {}),
             const SizedBox(height: 46),

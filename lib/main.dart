@@ -1,5 +1,5 @@
 import 'package:finance_app/core/styling/theme_data.dart';
-import 'package:finance_app/views/home_view.dart';
+import 'package:finance_app/routing/route_generator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,16 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      designSize: const Size(375, 812),
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'Finance App',
-          home: child,
           debugShowCheckedModeBanner: false,
           theme: AppThemes.lightTheme,
+          routerConfig: RouteGenerator.mainRoutingInOurApp,
         );
       },
-      designSize: const Size(375, 812),
-      child: const OnBoardingView(),
     );
   }
 }

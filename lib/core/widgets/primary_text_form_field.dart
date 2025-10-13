@@ -11,12 +11,14 @@ class AppTextFormField extends StatefulWidget {
     this.height,
     this.isPassword,
     this.obscureText,
+    this.keyboardType,
   });
   final String? hintText;
   final double? width;
   final double? height;
   final bool? isPassword;
   final bool? obscureText;
+  final TextInputType? keyboardType;
 
   @override
   State<AppTextFormField> createState() => _AppTextFormFieldState();

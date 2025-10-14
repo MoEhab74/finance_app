@@ -1,13 +1,16 @@
+import 'package:finance_app/views/create_new_password/view.dart';
+import 'package:finance_app/views/forget_password_view.dart';
 import 'package:finance_app/views/on_boarding_view.dart';
 import 'package:finance_app/views/login_view.dart';
+import 'package:finance_app/views/register_view.dart';
+import 'package:finance_app/views/verify_otp/view.dart';
 import 'package:go_router/go_router.dart';
 
 import 'app_routes.dart';
 
 class RouteGenerator {
-
-   static GoRouter mainRoutingInOurApp = GoRouter(
-     initialLocation: AppRoutes.onBoardingView,
+  static GoRouter mainRoutingInOurApp = GoRouter(
+    initialLocation: AppRoutes.onBoardingView,
     // List of Routes
     routes: [
       GoRoute(
@@ -20,11 +23,26 @@ class RouteGenerator {
         name: AppRoutes.loginView,
         builder: (context, state) => LoginView(),
       ),
-      // GoRoute(
-      //   path: AppRoutes.createNewPasswordView,
-      //   name: AppRoutes.createNewPasswordView,
-      //   builder: (context, state) => CreateNewPasswordView(),
-      // ),
+      GoRoute(
+        path: AppRoutes.registerView,
+        name: AppRoutes.registerView,
+        builder: (context, state) => const RegisterView(),
+      ),
+      GoRoute(
+        path: AppRoutes.forgotPasswordView,
+        name: AppRoutes.forgotPasswordView,
+        builder: (context, state) => const ForgetPassword(),
+      ),
+      GoRoute(
+        path: AppRoutes.otpVerificationView,
+        name: AppRoutes.otpVerificationView,
+        builder: (context, state) => const VerifyOtpView(),
+      ),
+      GoRoute(
+        path: AppRoutes.createNewPasswordView,
+        name: AppRoutes.createNewPasswordView,
+        builder: (context, state) => CreateNewPasswordView(),
+      ),
       // GoRoute(
       //   path: AppRoutes.homeView,
       //   name: AppRoutes.homeView,
@@ -46,6 +64,5 @@ class RouteGenerator {
       //   builder: (context, state) => ProfileView(),
       // ),
     ],
-   );
-
-  }
+  );
+}

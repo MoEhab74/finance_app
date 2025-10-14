@@ -31,7 +31,9 @@ class OnBoardingView extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16),
-            PrimaryOutLinedButton(text: 'Register', onPressed: () {}),
+            PrimaryOutLinedButton(text: 'Register', onPressed: () {
+              GoRouter.of(context).pushNamed(AppRoutes.registerView);
+            }),
             const SizedBox(height: 46),
             TextButton(
               onPressed: () {},

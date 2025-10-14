@@ -5,13 +5,12 @@ import 'package:finance_app/core/widgets/auth_or_verify_hint.dart';
 import 'package:finance_app/core/widgets/primary_button_widget.dart';
 import 'package:finance_app/core/widgets/primary_text_form_field.dart';
 import 'package:finance_app/core/widgets/social_media_login_button.dart';
-import 'package:finance_app/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,41 +27,32 @@ class LoginView extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Welcome back!\nAgain!',
+                'Hello! Register to get\nstarted',
                 style: AppStyles.primaryHeadLinesStyle,
               ),
             ),
             const SizedBox(height: 32),
             AppTextFormField(
-              hintText: 'Enter Your Email',
-              keyboardType: TextInputType.emailAddress,
+              hintText: 'Username',
             ),
             const SizedBox(height: 16),
             AppTextFormField(
-              hintText: 'Enter Your Password',
+              hintText: 'email',
+            ),
+            const SizedBox(height: 16),
+            AppTextFormField(
+              hintText: 'Password',
               isPassword: true,
               obscureText: true,
             ),
             const SizedBox(height: 16),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  // Navigate to Forget Password View by go_router
-                  GoRouter.of(context).pushNamed(AppRoutes.forgotPasswordView);
-                },
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                    color: AppColors.onSurfaceColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
+            AppTextFormField(
+              hintText: 'Confirm Password',
+              isPassword: true,
+              obscureText: true,
             ),
-            const SizedBox(height: 32),
-            AppButton(text: 'Login', onPressed: () {}),
+            const SizedBox(height: 30),
+            AppButton(text: 'Register', onPressed: () {}),
             const SizedBox(height: 35),
             Row(
               children: [
@@ -73,7 +63,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '  Or login with  ',
+                  '  Or Register with  ',
                   style: TextStyle(
                     color: Color(0xff6A707C),
                     fontSize: 14.sp,
@@ -97,12 +87,12 @@ class LoginView extends StatelessWidget {
                 SocialMediaLoginButton(image: 'assets/icons/apple.png'),
               ],
             ),
-            const SizedBox(height: 155),
+            const SizedBox(height: 54),
             AuthenticationOrVerificationHint(
-              questionText: "Don't have an account? ",
-              actionText: 'Sign Up',
+              questionText: "Already have an account? ",
+              actionText: 'Login',
               onTap: () {
-                GoRouter.of(context).pushNamed(AppRoutes.registerView);
+                Navigator.pop(context); // GoRouter.of(context).pop();
               },
             ),
           ],

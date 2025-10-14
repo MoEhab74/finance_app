@@ -1,8 +1,9 @@
 import 'package:finance_app/views/create_new_password/view.dart';
-import 'package:finance_app/views/forget_password_view.dart';
-import 'package:finance_app/views/on_boarding_view.dart';
-import 'package:finance_app/views/login_view.dart';
-import 'package:finance_app/views/register_view.dart';
+import 'package:finance_app/views/forget_password/view.dart';
+import 'package:finance_app/views/home/view.dart';
+import 'package:finance_app/views/on_boarding/view.dart';
+import 'package:finance_app/views/login/view.dart';
+import 'package:finance_app/views/register/view.dart';
 import 'package:finance_app/views/verify_otp/view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -43,11 +44,11 @@ class RouteGenerator {
         name: AppRoutes.createNewPasswordView,
         builder: (context, state) => CreateNewPasswordView(),
       ),
-      // GoRoute(
-      //   path: AppRoutes.homeView,
-      //   name: AppRoutes.homeView,
-      //   builder: (context, state) => HomeView(),
-      // ),
+      GoRoute(
+        path: AppRoutes.homeView,
+        name: AppRoutes.homeView,
+        builder: (context, state) => HomeView(),
+      ),
       // GoRoute(
       //   path: AppRoutes.cardView,
       //   name: AppRoutes.cardView,

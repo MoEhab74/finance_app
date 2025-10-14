@@ -27,7 +27,7 @@ class OnBoardingView extends StatelessWidget {
               text: 'Login',
               onPressed: () {
                 // Navigate to Login View by go_router
-                GoRouter.of(context).pushNamed(AppRoutes.loginView);
+                GoRouter.of(context).pushNamed(AppRoutes.homeView);
               },
             ),
             const SizedBox(height: 16),

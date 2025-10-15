@@ -1,4 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:finance_app/core/styling/app_colors.dart';
+import 'package:finance_app/views/home/widgets/card_item.dart';
+import 'package:finance_app/views/home/widgets/top_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,73 +14,59 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
+  double currentPageIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24).r,
+        padding: const EdgeInsets.symmetric(horizontal: 22).r,
         child: Column(
           children: [
-            Row(
-              children: [
-                // Row
-                Expanded(
-                  child: Row(
-                    children: [
-                      ClipOval(
-                        child: Image.asset(
-                          'assets/images/on_boarding.png',
-                          width: 48.w,
-                          height: 48.h,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Welcome back!',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.grayColor,
-                            ),
-                          ),
-                          SizedBox(height: 4.h),
-                          Text(
-                            'Mohamed Ehab',
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              color: const Color(0xff1F2C37),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Container(
-                        width: 48.w,
-                        height: 48.h,
-                        decoration: BoxDecoration(
-                          color: AppColors.whiteColor,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: const Color(0xffE3E9ED),
-                            width: 1,
-                          ),
-                        ),
-                        child: Icon(
-                          Icons.notifications,
-                          size: 24.sp,
-                          color: AppColors.primaryColor,
-                        ),
-                      ),
-                    ],
-                  ),
+            TopContentHomeBodyView(),
+            const SizedBox(height: 21),
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 263.h,
+                padEnds: false,
+                viewportFraction: 0.7,
+                enlargeCenterPage: true,
+                enlargeFactor: 0.2,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentPageIndex = index.toDouble();
+                  });
+                },
+              ),
+              items: [
+                CardItem(
+                  cardTitle: 'Mohamed',
+                  balance: 23400,
+                  cardNumber: '1234',
+                  expiryDate: '12/24',
+                  cardColor: AppColors.primaryColor,
                 ),
-                // Notification Icon
+                CardItem(
+                  cardTitle: 'Ehab',
+                  balance: 74500,
+                  cardNumber: '4321',
+                  expiryDate: '11/25',
+                  cardColor: const Color.fromARGB(255, 34, 67, 100),
+                ),
               ],
+            ),
+            const SizedBox(height: 16),
+            DotsIndicator(
+              animate: true,
+              dotsCount: 2,
+              position: currentPageIndex,
+              decorator: DotsDecorator(
+                spacing: const EdgeInsets.symmetric(horizontal: 4.0),
+                size: const Size.square(9.0),
+                activeSize: const Size(18.0, 9.0),
+                activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+              ),
             ),
           ],
         ),

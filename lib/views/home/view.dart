@@ -54,6 +54,8 @@ class _HomeViewState extends State<HomeView> {
           fontWeight: FontWeight.w500,
           color: AppColors.secondaryIconColor,
         ),
+        unselectedItemColor: AppColors.secondaryIconColor,
+        selectedItemColor: AppColors.primaryColor,
         type: BottomNavigationBarType.fixed,
         elevation: 0,
         currentIndex: currentIndex,
@@ -64,11 +66,11 @@ class _HomeViewState extends State<HomeView> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: AppColors.secondaryIconColor),
+            icon: Icon(Icons.home, ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart, color: AppColors.secondaryIconColor),
+            icon: Icon(Icons.bar_chart,),
             label: 'Statistics',
           ),
           BottomNavigationBarItem(
@@ -96,12 +98,12 @@ class _HomeViewState extends State<HomeView> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.account_balance_wallet,
-              color: AppColors.secondaryIconColor,
+              
             ),
             label: 'My Card',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: AppColors.secondaryIconColor),
+            icon: Icon(Icons.person,),
             label: 'Profile',
           ),
         ],

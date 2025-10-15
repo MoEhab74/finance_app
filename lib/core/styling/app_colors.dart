@@ -9,6 +9,7 @@ class AppColors {
   static const Color grayColor = Color(0xff9CA4AB);
   static const Color filledGrayColor = Color(0xffF7F8F9); 
   static const Color borderGrayColor = Color(0xffE8ECF4);
-  static const Color iconColor = Color(0xff6A707C);
+  static const Color primaryIconColor = Color(0xff6A707C);
   static const Color hintTextColor = Color(0xff8391A1);
+  static const Color secondaryIconColor = Color(0xff9CA4AB);
 }

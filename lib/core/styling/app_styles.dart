@@ -38,4 +38,16 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.grayColor,
   );
+
+  static TextStyle bodySmallGrayStyle = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+    color: const Color(0xff9CA4AB),
+  );
+
+  static TextStyle informationBodyStyle = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: const Color(0xff1F2C37),
+  );
 }

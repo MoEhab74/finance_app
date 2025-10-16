@@ -1,6 +1,7 @@
 import 'package:finance_app/core/styling/app_colors.dart';
 import 'package:finance_app/core/styling/app_styles.dart';
 import 'package:finance_app/views/home/widgets/home_body.dart';
+import 'package:finance_app/views/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HomeView extends StatefulWidget {
@@ -32,12 +33,7 @@ class _HomeViewState extends State<HomeView> {
         child: Text('My Card Page', style: AppStyles.primaryHeadLinesStyle),
       ),
     ),
-    Container(
-      color: Colors.white,
-      child: Center(
-        child: Text('Profile Page', style: AppStyles.primaryHeadLinesStyle),
-      ),
-    ),
+    ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:finance_app/core/styling/app_colors.dart';
 import 'package:finance_app/core/styling/app_styles.dart';
+import 'package:finance_app/views/card_view.dart';
 import 'package:finance_app/views/home/widgets/home_body.dart';
 import 'package:finance_app/views/profile/profile_view.dart';
 import 'package:flutter/material.dart';
@@ -27,12 +28,7 @@ class _HomeViewState extends State<HomeView> {
         child: Text('Add Page', style: AppStyles.primaryHeadLinesStyle),
       ),
     ),
-    Container(
-      color: Colors.white,
-      child: Center(
-        child: Text('My Card Page', style: AppStyles.primaryHeadLinesStyle),
-      ),
-    ),
+    CardView(),
     ProfileView(),
   ];
   @override

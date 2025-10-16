@@ -10,12 +10,16 @@ class CardItem extends StatelessWidget {
     required this.cardNumber,
     required this.expiryDate,
     this.cardColor,
+    this.width,
+    this.height,
   });
   final String cardTitle;
   final double balance;
   final String cardNumber;
   final String expiryDate;
   final Color? cardColor;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +27,8 @@ class CardItem extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: 207.h,
-          height: 263.h,
+          width: width ?? 207.h,
+          height: height ?? 263.h,
           decoration: BoxDecoration(
             color: cardColor ?? AppColors.primaryColor,
             borderRadius: BorderRadius.circular(16.r),

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:finance_app/core/styling/app_colors.dart';
 import 'package:finance_app/views/home/widgets/card_item.dart';
+import 'package:finance_app/views/home/widgets/grid_view_item.dart';
 import 'package:finance_app/views/home/widgets/top_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +19,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 22).r,
         child: Column(
           children: [
@@ -68,9 +69,49 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 ),
               ),
             ),
+            const SizedBox(height: 24),
+            // Grid View
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: GridViewItemData.iconsList.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                mainAxisSpacing: 8.h,
+                crossAxisSpacing: 8.w,
+                crossAxisCount: 2,
+              ),
+              itemBuilder: (context, index) {
+                return GridViewItem(
+                  gridViewItemData: GridViewItemData(
+                    icon: GridViewItemData.iconsList[index],
+                    title: 'Send Money',
+                    subtitle: 'Take acc to acc',
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+class GridViewItemData {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+
+  static List<IconData> iconsList = [
+    Icons.send,
+    Icons.account_balance_wallet,
+    Icons.mobile_friendly_outlined,
+    Icons.people,
+  ];
+
+  GridViewItemData({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+  });
 }
